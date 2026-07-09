@@ -34,3 +34,5 @@ Recipes are defined in `script.js` under the `RECIPES` object.
 Current skills in the UI:
 - Brewing
 - Cooking
+
+- More skills will be added shortly
