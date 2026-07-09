@@ -1,4 +1,4 @@
-# IdleClans-MC
+# Idle Clans Material Calculator
 
 - Version 0.1a
 
