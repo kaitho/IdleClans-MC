@@ -1,5 +1,5 @@
-# IdleClans-RC
-Idle Clans Reagents Calculator website.
+# IdleClans-MC
+Idle Clans Material Calculator website.
 
 This project now includes a simple static web app that calculates how many base materials ("mats") you need to craft one or more target items.
 
