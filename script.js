@@ -399,7 +399,7 @@ function createTreeListItem(node) {
   if (node.children.length) {
     const needs = document.createElement("div");
     needs.className = "breakdown-needs";
-    needs.textContent = `Needs: ${formatRequiredMaterials(node.children)}`;
+    needs.textContent = `Materials needed: ${formatRequiredMaterials(node.children)}`;
     item.append(needs);
     const childrenList = document.createElement("ul");
     node.children.forEach((child) => {

@@ -154,8 +154,9 @@ td:last-child {
 
 .breakdown-needs {
   margin: 0.15rem 0 0.25rem;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  font-weight: 600;
 }
 
 .notes ul {
