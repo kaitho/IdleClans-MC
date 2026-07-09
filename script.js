@@ -1,11 +1,4 @@
 const SKILL_TYPES = Object.freeze({
-  Gathering: Object.freeze([
-    "Fishing",
-    "Woodcutting",
-    "Mining",
-    "Foraging",
-    "Invocation - Archaeological sites"
-  ]),
   Processing: Object.freeze([
     "Cooking",
     "Carpentry",
@@ -13,23 +6,6 @@ const SKILL_TYPES = Object.freeze({
     "Crafting",
     "Farming",
     "Brewing"
-  ]),
-  Combat: Object.freeze([
-    "Attack",
-    "Defence",
-    "Strength",
-    "Archery",
-    "Magic",
-    "Exterminating",
-    "Invocation - Rituals"
-  ]),
-  Utility: Object.freeze([
-    "Agility",
-    "Enchanting"
-  ]),
-  Other: Object.freeze([
-    "Plundering",
-    "Item creation"
   ])
 });
 
@@ -282,29 +258,6 @@ const RECIPES = Object.freeze({
       "Vial of Water": 1,
       "Blue Herb": 2
     }
-  },
-  "Air Rune": {
-    skill: "Invocation - Rituals",
-    output: 5,
-    ingredients: {
-      "Rune Essence": 1
-    }
-  },
-  "Water Rune": {
-    skill: "Invocation - Rituals",
-    output: 5,
-    ingredients: {
-      "Rune Essence": 1,
-      "Water Talisman": 1
-    }
-  },
-  "Fire Rune": {
-    skill: "Invocation - Rituals",
-    output: 5,
-    ingredients: {
-      "Rune Essence": 1,
-      "Fire Talisman": 1
-    }
   }
 });
 
@@ -395,7 +348,7 @@ function compareItems(left, right) {
 }
 
 function getSkillType(skill) {
-  return skillMetadata.skillTypeBySkill.get(skill) || "Other";
+  return skillMetadata.skillTypeBySkill.get(skill) || "Unmapped";
 }
 
 function setStatus(message, isError = false) {
