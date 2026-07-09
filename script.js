@@ -237,9 +237,8 @@ function renderSkillSummary() {
   categoriesEmpty.hidden = true;
 }
 
-function createItemSelect(selectedValue = craftableItems[0]) {
-  const select = document.createElement("select");
-  select.className = "target-item";
+function populateItemSelect(select, selectedValue = craftableItems[0]) {
+  select.innerHTML = "";
 
   skillList.forEach((skill) => {
     const items = recipesBySkill.get(skill) || [];
@@ -263,20 +262,17 @@ function createItemSelect(selectedValue = craftableItems[0]) {
 
     select.append(group);
   });
-
-  return select;
 }
 
 function addTargetRow(selectedItem = craftableItems[0], quantity = 1) {
   const fragment = targetRowTemplate.content.cloneNode(true);
   const row = fragment.querySelector(".target-row");
-  const itemLabel = row.querySelector("label:first-child");
+  const select = row.querySelector(".target-item");
   const quantityInput = row.querySelector(".target-quantity");
   const removeButton = row.querySelector(".remove-target");
-  const select = createItemSelect(selectedItem);
+  populateItemSelect(select, selectedItem);
 
   quantityInput.value = String(quantity);
-  itemLabel.append(select);
 
   removeButton.addEventListener("click", () => {
     row.remove();
@@ -297,8 +293,7 @@ function readTargets() {
     const quantity = Number.isFinite(parsed) ? Math.floor(parsed) : 0;
     return { item, quantity };
   });
-
-  return targets.filter((target) => target.quantity > 0);
+  return targets.filter((target) => target.item && target.quantity > 0);
 }
 
 function buildRequirementTree(item, quantity, ancestors = []) {
