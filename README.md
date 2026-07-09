@@ -5,8 +5,8 @@ This project now includes a simple static web app that calculates how many base 
 
 ## Features
 - Pick multiple craft targets and quantities.
-- Browse items grouped by Idle Clans Processing skill.
-- See all Processing skills with recipe counts.
+- Browse items grouped by Brewing.
+- See Brewing recipes with counts.
 - Recursively expands recipe chains.
 - Aggregates total base materials across all targets.
 - Shows a nested crafting breakdown.
@@ -30,10 +30,5 @@ Recipes are defined in `script.js` under the `RECIPES` object.
 - Add or edit recipe entries there to match the latest Idle Clans data.
 - Brewing recipes are now aligned with the official Brewing wiki skill table.
 
-Current skills in the UI (Processing only):
-- Cooking
-- Carpentry
-- Smithing
-- Crafting
-- Farming
+Current skills in the UI:
 - Brewing
