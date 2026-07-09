@@ -1,6 +1,6 @@
 # Idle Clans Materials Calculator
 
-- Version 0.1a
+- Version 0.1b
 
 Idle Clans Material Calculator website.
 
