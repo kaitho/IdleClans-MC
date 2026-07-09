@@ -28,6 +28,7 @@ Recipes are defined in `script.js` under the `RECIPES` object.
 - Any item that does **not** have a recipe entry is treated as a base material.
 - Each recipe has a `skill`, `output`, and `ingredients`.
 - Add or edit recipe entries there to match the latest Idle Clans data.
+- Brewing recipes are now aligned with the official Brewing wiki skill table.
 
 Current skills in the UI (Processing only):
 - Cooking

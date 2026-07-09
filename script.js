@@ -235,28 +235,105 @@ const RECIPES = Object.freeze({
       Potato: 1
     }
   },
-  "Vial of Water": {
+  "Potion of Swiftness": {
     skill: "Brewing",
     output: 1,
     ingredients: {
-      "Empty Vial": 1,
-      Water: 1
+      Tomato: 10,
+      Nettle: 5,
+      "Pine Log": 2
     }
   },
-  "Health Potion": {
+  "Potion of Negotiation": {
     skill: "Brewing",
     output: 1,
     ingredients: {
-      "Vial of Water": 1,
-      "Red Herb": 2
+      Tomato: 10,
+      "Magical Flax": 15,
+      "Oak Log": 2
     }
   },
-  "Mana Potion": {
+  "Potion of Resurrection": {
     skill: "Brewing",
     output: 1,
     ingredients: {
-      "Vial of Water": 1,
-      "Blue Herb": 2
+      Cabbage: 15,
+      "Enchanted Flax": 10,
+      "Chestnut Log": 2
+    }
+  },
+  "Potion of Forgery": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      Strawberry: 10,
+      "Enchanted Flax": 15,
+      "Mahogany Log": 2
+    }
+  },
+  "Potion of Great Sight": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      Watermelon: 10,
+      "Magical Flax": 15,
+      "Teak Log": 2
+    }
+  },
+  "Potion of Trickery": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      Grapes: 10,
+      Porcini: 15,
+      "Yew Log": 2
+    }
+  },
+  "Potion of Dark Magic": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      Papaya: 10,
+      "Cursed Flax": 15,
+      "Redwood Log": 2
+    }
+  },
+  "Potion of Pure Power": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      Papaya: 15,
+      Seaweed: 20,
+      "Magical Log": 2
+    }
+  },
+  "Potion of Ancient Knowledge": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      "Dragon Fruit": 20,
+      Seaweed: 50,
+      "Magical Log": 10
+    }
+  },
+  "Dragonfire Potion": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      "Sunfire Berry": 10,
+      "Smoldering Mushroom": 30,
+      "Ignis Heartwood": 5,
+      "Otherworldly Essence": 100
+    }
+  },
+  "Potion of Ascension": {
+    skill: "Brewing",
+    output: 1,
+    ingredients: {
+      "Divine Ashes": 10,
+      "Obsidian Powder": 30,
+      "Sea Serpent Scale": 30,
+      "Spirit Salt": 50
     }
   }
 });
