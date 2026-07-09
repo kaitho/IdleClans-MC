@@ -10,6 +10,12 @@ This project now includes a simple static web app that calculates how many base 
 - Browser ✅
 - Mobile  ✅
 
+## Current skills in the UI:
+- Brewing
+- Cooking
+
+- More skills will be added shortly
+
 ## Features
 - Pick multiple craft targets and quantities.
 - Browse items grouped by Brewing and Cooking.
@@ -38,8 +44,3 @@ Recipes are defined in `script.js` under the `RECIPES` object.
 - Brewing recipes are now aligned with the official Brewing wiki skill table.
 - Cooking recipes are aligned with the official Cooking wiki skill table.
 
-Current skills in the UI:
-- Brewing
-- Cooking
-
-- More skills will be added shortly
