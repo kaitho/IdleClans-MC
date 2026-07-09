@@ -1,4 +1,4 @@
-# Idle Clans Material Calculator
+# Idle Clans Materials Calculator
 
 - Version 0.1a
 
