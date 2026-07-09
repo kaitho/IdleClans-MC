@@ -13,7 +13,6 @@ This project now includes a simple static web app that calculates how many base 
 ## Current skills in the UI:
 - Brewing
 - Cooking
-
 - More skills will be added shortly
 
 ## Features
@@ -43,4 +42,3 @@ Recipes are defined in `script.js` under the `RECIPES` object.
 - Add or edit recipe entries there to match the latest Idle Clans data.
 - Brewing recipes are now aligned with the official Brewing wiki skill table.
 - Cooking recipes are aligned with the official Cooking wiki skill table.
-
