@@ -1,18 +1,41 @@
-const CRAFTING_CATEGORIES = Object.freeze([
-  "Smithing",
-  "Woodworking",
-  "Fletching",
-  "Leatherworking",
-  "Tailoring",
-  "Cooking",
-  "Alchemy",
-  "Runecrafting",
-  "Jewelry"
-]);
+const SKILL_TYPES = Object.freeze({
+  Gathering: Object.freeze([
+    "Fishing",
+    "Woodcutting",
+    "Mining",
+    "Foraging",
+    "Invocation - Archaeological sites"
+  ]),
+  Processing: Object.freeze([
+    "Cooking",
+    "Carpentry",
+    "Smithing",
+    "Crafting",
+    "Farming",
+    "Brewing"
+  ]),
+  Combat: Object.freeze([
+    "Attack",
+    "Defence",
+    "Strength",
+    "Archery",
+    "Magic",
+    "Exterminating",
+    "Invocation - Rituals"
+  ]),
+  Utility: Object.freeze([
+    "Agility",
+    "Enchanting"
+  ]),
+  Other: Object.freeze([
+    "Plundering",
+    "Item creation"
+  ])
+});
 
 const RECIPES = Object.freeze({
   "Copper Bar": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Copper Ore": 3,
@@ -20,7 +43,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Tin Bar": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Tin Ore": 3,
@@ -28,7 +51,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Bronze Bar": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Copper Bar": 1,
@@ -36,7 +59,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Iron Bar": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Iron Ore": 3,
@@ -44,7 +67,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Steel Bar": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Iron Bar": 2,
@@ -52,7 +75,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Bronze Sword": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Bronze Bar": 3,
@@ -61,7 +84,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Iron Sword": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Iron Bar": 3,
@@ -70,7 +93,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Steel Sword": {
-    category: "Smithing",
+    skill: "Smithing",
     output: 1,
     ingredients: {
       "Steel Bar": 3,
@@ -79,35 +102,35 @@ const RECIPES = Object.freeze({
     }
   },
   Plank: {
-    category: "Woodworking",
+    skill: "Carpentry",
     output: 2,
     ingredients: {
       "Wood Log": 1
     }
   },
   "Oak Plank": {
-    category: "Woodworking",
+    skill: "Carpentry",
     output: 2,
     ingredients: {
       "Oak Log": 1
     }
   },
   "Hardwood Plank": {
-    category: "Woodworking",
+    skill: "Carpentry",
     output: 2,
     ingredients: {
       "Hardwood Log": 1
     }
   },
   "Iron Rivet": {
-    category: "Woodworking",
+    skill: "Carpentry",
     output: 5,
     ingredients: {
       "Iron Bar": 1
     }
   },
   "Wooden Shield": {
-    category: "Woodworking",
+    skill: "Carpentry",
     output: 1,
     ingredients: {
       "Oak Plank": 3,
@@ -116,21 +139,21 @@ const RECIPES = Object.freeze({
     }
   },
   "Arrow Shaft": {
-    category: "Fletching",
+    skill: "Crafting",
     output: 10,
     ingredients: {
       "Oak Plank": 1
     }
   },
   "Bronze Arrowhead": {
-    category: "Fletching",
+    skill: "Crafting",
     output: 10,
     ingredients: {
       "Bronze Bar": 1
     }
   },
   "Bronze Arrow": {
-    category: "Fletching",
+    skill: "Crafting",
     output: 10,
     ingredients: {
       "Arrow Shaft": 10,
@@ -139,21 +162,21 @@ const RECIPES = Object.freeze({
     }
   },
   "Leather Strip": {
-    category: "Leatherworking",
+    skill: "Crafting",
     output: 2,
     ingredients: {
       "Raw Hide": 1
     }
   },
   "Leather Padding": {
-    category: "Leatherworking",
+    skill: "Crafting",
     output: 1,
     ingredients: {
       "Leather Strip": 2
     }
   },
   "Leather Gloves": {
-    category: "Leatherworking",
+    skill: "Crafting",
     output: 1,
     ingredients: {
       "Leather Strip": 4,
@@ -161,7 +184,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Leather Boots": {
-    category: "Leatherworking",
+    skill: "Crafting",
     output: 1,
     ingredients: {
       "Leather Strip": 6,
@@ -169,14 +192,14 @@ const RECIPES = Object.freeze({
     }
   },
   Thread: {
-    category: "Tailoring",
+    skill: "Crafting",
     output: 3,
     ingredients: {
       Flax: 1
     }
   },
   "Cloth Bolt": {
-    category: "Tailoring",
+    skill: "Crafting",
     output: 1,
     ingredients: {
       Cotton: 5,
@@ -184,29 +207,51 @@ const RECIPES = Object.freeze({
     }
   },
   "Linen Robe": {
-    category: "Tailoring",
+    skill: "Crafting",
     output: 1,
     ingredients: {
       "Cloth Bolt": 4,
       Thread: 3
     }
   },
+  "Bronze Ring": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Bronze Bar": 1
+    }
+  },
+  "Iron Ring": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Iron Bar": 1
+    }
+  },
+  "Steel Necklace": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Steel Bar": 1,
+      Gemstone: 1
+    }
+  },
   "Cooked Shrimp": {
-    category: "Cooking",
+    skill: "Cooking",
     output: 1,
     ingredients: {
       "Raw Shrimp": 1
     }
   },
   "Cooked Fish": {
-    category: "Cooking",
+    skill: "Cooking",
     output: 1,
     ingredients: {
       "Raw Fish": 1
     }
   },
   "Meat Stew": {
-    category: "Cooking",
+    skill: "Cooking",
     output: 1,
     ingredients: {
       "Raw Meat": 2,
@@ -215,7 +260,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Vial of Water": {
-    category: "Alchemy",
+    skill: "Brewing",
     output: 1,
     ingredients: {
       "Empty Vial": 1,
@@ -223,7 +268,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Health Potion": {
-    category: "Alchemy",
+    skill: "Brewing",
     output: 1,
     ingredients: {
       "Vial of Water": 1,
@@ -231,7 +276,7 @@ const RECIPES = Object.freeze({
     }
   },
   "Mana Potion": {
-    category: "Alchemy",
+    skill: "Brewing",
     output: 1,
     ingredients: {
       "Vial of Water": 1,
@@ -239,14 +284,14 @@ const RECIPES = Object.freeze({
     }
   },
   "Air Rune": {
-    category: "Runecrafting",
+    skill: "Invocation - Rituals",
     output: 5,
     ingredients: {
       "Rune Essence": 1
     }
   },
   "Water Rune": {
-    category: "Runecrafting",
+    skill: "Invocation - Rituals",
     output: 5,
     ingredients: {
       "Rune Essence": 1,
@@ -254,45 +299,23 @@ const RECIPES = Object.freeze({
     }
   },
   "Fire Rune": {
-    category: "Runecrafting",
+    skill: "Invocation - Rituals",
     output: 5,
     ingredients: {
       "Rune Essence": 1,
       "Fire Talisman": 1
     }
-  },
-  "Bronze Ring": {
-    category: "Jewelry",
-    output: 1,
-    ingredients: {
-      "Bronze Bar": 1
-    }
-  },
-  "Iron Ring": {
-    category: "Jewelry",
-    output: 1,
-    ingredients: {
-      "Iron Bar": 1
-    }
-  },
-  "Steel Necklace": {
-    category: "Jewelry",
-    output: 1,
-    ingredients: {
-      "Steel Bar": 1,
-      Gemstone: 1
-    }
   }
 });
 
 const formatter = new Intl.NumberFormat();
-const categoryPriority = new Map(CRAFTING_CATEGORIES.map((category, index) => [category, index]));
 const recipeEntries = Object.entries(RECIPES);
-const itemsByCategory = buildItemsByCategory(recipeEntries);
-const categoryList = buildCategoryList(itemsByCategory);
+const skillMetadata = buildSkillMetadata();
+const recipesBySkill = buildRecipesBySkill(recipeEntries);
+const skillList = buildSkillList(recipesBySkill);
 const craftableItems = recipeEntries
   .map(([item]) => item)
-  .sort((left, right) => compareItems(left, right));
+  .sort(compareItems);
 
 const targetsContainer = document.querySelector("#targets");
 const statusEl = document.querySelector("#status");
@@ -307,24 +330,28 @@ const targetRowTemplate = document.querySelector("#target-row-template");
 const addTargetButton = document.querySelector("#add-target");
 const calculateButton = document.querySelector("#calculate");
 
-function buildItemsByCategory(entries) {
-  const grouped = new Map();
+function buildSkillMetadata() {
+  const skillTypeOrder = Object.keys(SKILL_TYPES);
+  const skillPriority = new Map();
+  const skillTypeBySkill = new Map();
 
-  entries.forEach(([itemName, recipe]) => {
-    const category = recipe.category || "Uncategorized";
-    if (!grouped.has(category)) {
-      grouped.set(category, []);
-    }
-    grouped.get(category).push(itemName);
+  skillTypeOrder.forEach((type, typeIndex) => {
+    SKILL_TYPES[type].forEach((skill, indexInType) => {
+      if (!skillPriority.has(skill)) {
+        skillPriority.set(skill, typeIndex * 100 + indexInType);
+      }
+      if (!skillTypeBySkill.has(skill)) {
+        skillTypeBySkill.set(skill, type);
+      }
+    });
   });
 
-  grouped.forEach((items) => items.sort((a, b) => a.localeCompare(b)));
-  return grouped;
+  return { skillTypeOrder, skillPriority, skillTypeBySkill };
 }
 
-function compareCategories(left, right) {
-  const leftRank = categoryPriority.has(left) ? categoryPriority.get(left) : Number.MAX_SAFE_INTEGER;
-  const rightRank = categoryPriority.has(right) ? categoryPriority.get(right) : Number.MAX_SAFE_INTEGER;
+function compareSkills(left, right) {
+  const leftRank = skillMetadata.skillPriority.has(left) ? skillMetadata.skillPriority.get(left) : Number.MAX_SAFE_INTEGER;
+  const rightRank = skillMetadata.skillPriority.has(right) ? skillMetadata.skillPriority.get(right) : Number.MAX_SAFE_INTEGER;
 
   if (leftRank !== rightRank) {
     return leftRank - rightRank;
@@ -333,22 +360,42 @@ function compareCategories(left, right) {
   return left.localeCompare(right);
 }
 
-function buildCategoryList(groupedItems) {
-  const discovered = [...groupedItems.keys()];
-  const merged = [...new Set([...CRAFTING_CATEGORIES, ...discovered])];
-  return merged.sort(compareCategories);
+function buildRecipesBySkill(entries) {
+  const grouped = new Map();
+
+  entries.forEach(([itemName, recipe]) => {
+    const skill = recipe.skill || "Unmapped";
+    if (!grouped.has(skill)) {
+      grouped.set(skill, []);
+    }
+    grouped.get(skill).push(itemName);
+  });
+
+  grouped.forEach((items) => items.sort((a, b) => a.localeCompare(b)));
+  return grouped;
 }
 
-function getItemCategory(itemName) {
-  return RECIPES[itemName]?.category || "Uncategorized";
+function buildSkillList(grouped) {
+  const configuredSkills = skillMetadata.skillTypeOrder.flatMap((type) => SKILL_TYPES[type]);
+  const discoveredSkills = [...grouped.keys()];
+  const merged = [...new Set([...configuredSkills, ...discoveredSkills])];
+  return merged.sort(compareSkills);
+}
+
+function getItemSkill(itemName) {
+  return RECIPES[itemName]?.skill || "Unmapped";
 }
 
 function compareItems(left, right) {
-  const categorySort = compareCategories(getItemCategory(left), getItemCategory(right));
-  if (categorySort !== 0) {
-    return categorySort;
+  const skillSort = compareSkills(getItemSkill(left), getItemSkill(right));
+  if (skillSort !== 0) {
+    return skillSort;
   }
   return left.localeCompare(right);
+}
+
+function getSkillType(skill) {
+  return skillMetadata.skillTypeBySkill.get(skill) || "Other";
 }
 
 function setStatus(message, isError = false) {
@@ -364,24 +411,26 @@ function formatAmount(value) {
   return formatter.format(value);
 }
 
-function renderCategories() {
+function renderSkillSummary() {
   categoriesListEl.innerHTML = "";
 
-  if (!categoryList.length) {
+  if (!skillList.length) {
     categoriesEmpty.hidden = false;
     return;
   }
 
-  categoryList.forEach((category) => {
-    const itemCount = (itemsByCategory.get(category) || []).length;
+  skillList.forEach((skill) => {
+    const recipeCount = (recipesBySkill.get(skill) || []).length;
+    const type = getSkillType(skill);
+
     const item = document.createElement("li");
     const name = document.createElement("span");
     const count = document.createElement("span");
 
     item.className = "category-chip";
-    name.textContent = category;
+    name.textContent = `${skill} (${type})`;
     count.className = "count";
-    count.textContent = `${formatAmount(itemCount)} recipe${itemCount === 1 ? "" : "s"}`;
+    count.textContent = `${formatAmount(recipeCount)} recipe${recipeCount === 1 ? "" : "s"}`;
 
     item.append(name, count);
     categoriesListEl.append(item);
@@ -394,14 +443,15 @@ function createItemSelect(selectedValue = craftableItems[0]) {
   const select = document.createElement("select");
   select.className = "target-item";
 
-  categoryList.forEach((category) => {
-    const items = itemsByCategory.get(category) || [];
+  skillList.forEach((skill) => {
+    const items = recipesBySkill.get(skill) || [];
     if (!items.length) {
       return;
     }
 
+    const type = getSkillType(skill);
     const group = document.createElement("optgroup");
-    group.label = `${category} (${items.length})`;
+    group.label = `${skill} (${type})`;
 
     items.forEach((itemName) => {
       const option = document.createElement("option");
@@ -459,7 +509,6 @@ function buildRequirementTree(item, quantity, ancestors = []) {
   }
 
   const recipe = RECIPES[item];
-
   if (!recipe) {
     return {
       item,
@@ -477,7 +526,7 @@ function buildRequirementTree(item, quantity, ancestors = []) {
 
   return {
     item,
-    category: recipe.category,
+    skill: recipe.skill,
     quantity,
     base: false,
     outputPerBatch: recipe.output,
@@ -539,7 +588,7 @@ function createTreeListItem(node) {
   }
 
   item.textContent =
-    `${formatAmount(node.quantity)}x ${node.item} [${node.category}] -> craft ${formatAmount(node.crafted)} ` +
+    `${formatAmount(node.quantity)}x ${node.item} [${node.skill}] -> craft ${formatAmount(node.crafted)} ` +
     `(${formatAmount(node.batches)} batch${node.batches === 1 ? "" : "es"})`;
 
   if (node.children.length) {
@@ -594,7 +643,7 @@ function onCalculate() {
 addTargetButton.addEventListener("click", () => addTargetRow());
 calculateButton.addEventListener("click", onCalculate);
 
-renderCategories();
+renderSkillSummary();
 
 if (!craftableItems.length) {
   setStatus("No craftable recipe data found in RECIPES.", true);
