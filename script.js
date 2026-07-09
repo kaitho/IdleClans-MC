@@ -1,5 +1,5 @@
 const SKILL_TYPES = Object.freeze({
-  Processing: Object.freeze(["Brewing"])
+  Processing: Object.freeze(["Brewing", "Cooking"])
 });
 
 const RECIPES = Object.freeze({
@@ -102,6 +102,201 @@ const RECIPES = Object.freeze({
       "Obsidian Powder": 30,
       "Sea Serpent Scale": 30,
       "Spirit Salt": 50
+    }
+  },
+  "Cooked Piranha": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Piranha": 1
+    }
+  },
+  "Cooked Perch": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Perch": 1
+    }
+  },
+  "Cooked Mackerel": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Mackerel": 1
+    }
+  },
+  "Cooked Cod": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Cod": 1
+    }
+  },
+  "Cooked Trout": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Trout": 1
+    }
+  },
+  "Cooked Salmon": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Salmon": 1
+    }
+  },
+  "Cooked Carp": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Carp": 1
+    }
+  },
+  "Cooked Zander": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Zander": 1
+    }
+  },
+  "Cooked Pufferfish": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Pufferfish": 1
+    }
+  },
+  "Cooked Anglerfish": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Anglerfish": 1
+    }
+  },
+  "Cooked Tuna": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Tuna": 1
+    }
+  },
+  "Cooked Bloodmoon Eel": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Bloodmoon Eel": 1
+    }
+  },
+  "Cooked Sea Serpent": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Sea Serpent": 1
+    }
+  },
+  "Cooked Meat": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Meat": 1
+    }
+  },
+  "Cooked Giant Meat": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Giant Meat": 1
+    }
+  },
+  "Cooked Quality Meat": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Quality Meat": 1
+    }
+  },
+  "Cooked Superior Meat": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Superior Meat": 1
+    }
+  },
+  "Apex Meat": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Raw Apex Meat": 1
+    }
+  },
+  "Potato Soup": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      Potato: 3
+    }
+  },
+  "Meat Burger": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Cooked Meat": 2,
+      Onion: 1
+    }
+  },
+  "Cod Soup": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Cooked Cod": 2,
+      Potato: 3,
+      Onion: 1
+    }
+  },
+  "Blueberry Pie": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      Blueberry: 10,
+      Onion: 1
+    }
+  },
+  "Salmon Salad": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Cooked Salmon": 2,
+      Potato: 3,
+      Onion: 1
+    }
+  },
+  "Porcini Soup": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      Porcini: 5,
+      Potato: 4,
+      Onion: 2
+    }
+  },
+  "Beef Stew": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      Potato: 4,
+      Carrot: 4,
+      "Cooked Quality Meat": 1
+    }
+  },
+  "Power Pizza": {
+    skill: "Cooking",
+    output: 1,
+    ingredients: {
+      "Cooked Zander": 3,
+      "Cooked Pufferfish": 1,
+      "Cooked Quality Meat": 2,
+      Onion: 1
     }
   }
 });
