@@ -153,6 +153,31 @@ td:last-child {
   padding-left: 1.25rem;
 }
 
+.categories-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.category-chip {
+  border: 1px solid #364154;
+  background: #121822;
+  border-radius: 999px;
+  padding: 0.35rem 0.7rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+}
+
+.category-chip .count {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 @media (max-width: 700px) {
   .target-row {
     grid-template-columns: 1fr;

@@ -12,6 +12,11 @@
     <p class="intro">
       Add crafted items and quantities to see the total base mats required.
     </p>
+    <section class="panel">
+      <h2>Crafting Categories</h2>
+      <p id="categories-empty" class="empty">No categories loaded.</p>
+      <ul id="categories-list" class="categories-list"></ul>
+    </section>
 
     <section class="panel">
       <h2>Craft Targets</h2>
@@ -46,6 +51,7 @@
     <section class="panel notes">
       <h2>Notes</h2>
       <ul>
+        <li>Item choices are grouped by crafting category.</li>
         <li>Crafting rounds up to full batches.</li>
         <li>Items missing from recipe data are treated as base mats.</li>
         <li>Update `RECIPES` in <code>script.js</code> to match game changes.</li>
