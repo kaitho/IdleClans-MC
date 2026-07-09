@@ -1,4 +1,7 @@
 # IdleClans-MC
+
+- Version 0.1a
+
 Idle Clans Material Calculator website.
 
 This project now includes a simple static web app that calculates how many base materials ("mats") you need to craft one or more target items.
