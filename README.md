@@ -1,4 +1,27 @@
 # IdleClans-RC
-Idle Clans Reagents Calculator
+Idle Clans Reagents Calculator website.
 
-Simple tool that tells you how much mats you need for crafting
+This project now includes a simple static web app that calculates how many base materials ("mats") you need to craft one or more target items.
+
+## Features
+- Pick multiple craft targets and quantities.
+- Recursively expands recipe chains.
+- Aggregates total base materials across all targets.
+- Shows a nested crafting breakdown.
+- Rounds crafting requirements up to whole recipe batches.
+
+## Run locally
+Open `index.html` in a browser.
+
+Or serve it with a local static server:
+```bash
+cd /workspace/IdleClans-RC
+python3 -m http.server 8000
+```
+Then visit `http://localhost:8000`.
+
+## Recipe data
+Recipes are defined in `script.js` under the `RECIPES` object.
+
+- Any item that does **not** have a recipe entry is treated as a base material.
+- Add or edit recipe entries there to match the latest Idle Clans data.

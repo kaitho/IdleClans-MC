@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Idle Clans Materials Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Idle Clans Materials Calculator</h1>
+    <p class="intro">
+      Add crafted items and quantities to see the total base mats required.
+    </p>
+
+    <section class="panel">
+      <h2>Craft Targets</h2>
+      <p id="status" class="status" aria-live="polite"></p>
+      <div id="targets" class="targets"></div>
+      <div class="actions">
+        <button id="add-target" type="button">Add item</button>
+        <button id="calculate" type="button" class="primary">Calculate materials</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Total Base Materials</h2>
+      <p id="totals-empty" class="empty">No calculation yet.</p>
+      <table id="totals-table" hidden>
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody id="totals-body"></tbody>
+      </table>
+    </section>
+
+    <section class="panel">
+      <h2>Crafting Breakdown</h2>
+      <p id="breakdown-empty" class="empty">No calculation yet.</p>
+      <div id="breakdown"></div>
+    </section>
+
+    <section class="panel notes">
+      <h2>Notes</h2>
+      <ul>
+        <li>Crafting rounds up to full batches.</li>
+        <li>Items missing from recipe data are treated as base mats.</li>
+        <li>Update `RECIPES` in <code>script.js</code> to match game changes.</li>
+      </ul>
+    </section>
+  </main>
+
+  <template id="target-row-template">
+    <div class="target-row">
+      <label>
+        Item
+        <select class="target-item"></select>
+      </label>
+      <label>
+        Quantity
+        <input class="target-quantity" type="number" min="1" step="1" value="1">
+      </label>
+      <button type="button" class="remove-target" aria-label="Remove target">Remove</button>
+    </div>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
