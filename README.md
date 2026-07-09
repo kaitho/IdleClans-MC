@@ -6,6 +6,10 @@ Idle Clans Material Calculator website.
 
 This project now includes a simple static web app that calculates how many base materials ("mats") you need to craft one or more target items.
 
+## Compability
+- Browser ✅
+- Mobile  ✅
+
 ## Features
 - Pick multiple craft targets and quantities.
 - Browse items grouped by Brewing and Cooking.
