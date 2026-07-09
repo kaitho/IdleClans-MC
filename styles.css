@@ -148,6 +148,16 @@ td:last-child {
   margin: 0.25rem 0;
 }
 
+.breakdown-summary {
+  font-weight: 600;
+}
+
+.breakdown-needs {
+  margin: 0.15rem 0 0.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .notes ul {
   margin: 0;
   padding-left: 1.25rem;

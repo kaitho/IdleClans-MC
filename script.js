@@ -608,6 +608,11 @@ function renderTotals(totals) {
   totalsEmpty.hidden = true;
   totalsTable.hidden = false;
 }
+function formatRequiredMaterials(children) {
+  return children
+    .map((child) => `${formatAmount(child.quantity)}x ${child.item}`)
+    .join(", ");
+}
 
 function createTreeListItem(node) {
   const item = document.createElement("li");
@@ -616,12 +621,18 @@ function createTreeListItem(node) {
     item.textContent = `${formatAmount(node.quantity)}x ${node.item} (base)`;
     return item;
   }
-
-  item.textContent =
+  const summary = document.createElement("div");
+  summary.className = "breakdown-summary";
+  summary.textContent =
     `${formatAmount(node.quantity)}x ${node.item} [${node.skill}] -> craft ${formatAmount(node.crafted)} ` +
     `(${formatAmount(node.batches)} batch${node.batches === 1 ? "" : "es"})`;
+  item.append(summary);
 
   if (node.children.length) {
+    const needs = document.createElement("div");
+    needs.className = "breakdown-needs";
+    needs.textContent = `Needs: ${formatRequiredMaterials(node.children)}`;
+    item.append(needs);
     const childrenList = document.createElement("ul");
     node.children.forEach((child) => {
       childrenList.append(createTreeListItem(child));
