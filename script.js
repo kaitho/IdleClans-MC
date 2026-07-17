@@ -1,5 +1,5 @@
 const SKILL_TYPES = Object.freeze({
-  Processing: Object.freeze(["Brewing", "Cooking"])
+  Processing: Object.freeze(["Brewing", "Cooking", "Crafting"])
 });
 
 const RECIPES = Object.freeze({
@@ -297,6 +297,241 @@ const RECIPES = Object.freeze({
       "Cooked Pufferfish": 1,
       "Cooked Quality Meat": 2,
       Onion: 1
+    }
+  },
+  "Refined Gemstone": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      Gemstone: 1
+    }
+  },
+  "Great Gemstone": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Refined Gemstone": 1
+    }
+  },
+  "Elite Gemstone": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Great Gemstone": 1
+    }
+  },
+  "Superior Gemstone": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Elite Gemstone": 1
+    }
+  },
+  "Outstanding Gemstone": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Superior Gemstone": 1
+    }
+  },
+  "Godlike Gemstone": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Outstanding Gemstone": 1
+    }
+  },
+  "Otherworldly Gemstone": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Godlike Gemstone": 3
+    }
+  },
+  "Leather Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      Leather: 3
+    }
+  },
+  "Orange Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Orange Leather": 20
+    }
+  },
+  "Green Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Green Leather": 40
+    }
+  },
+  "Red Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Red Leather": 60
+    }
+  },
+  "Black Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Black Leather": 80
+    }
+  },
+  "Basilisk Scale Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Basilisk Scale": 3,
+      "Black Coat": 1
+    }
+  },
+  "Astronomical Leather Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Astronomical Leather": 6
+    }
+  },
+  "Otherworldly Leather Coat": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Otherworldly Leather": 6,
+      "Astronomical Leather Coat": 1
+    }
+  },
+  "Leather Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      Leather: 2
+    }
+  },
+  "Orange Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Orange Leather": 20
+    }
+  },
+  "Green Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Green Leather": 40
+    }
+  },
+  "Red Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Red Leather": 60
+    }
+  },
+  "Black Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Black Leather": 80
+    }
+  },
+  "Basilisk Scale Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Basilisk Scale": 2,
+      "Black Trousers": 1
+    }
+  },
+  "Astronomical Leather Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Astronomical Leather": 4
+    }
+  },
+  "Otherworldly Leather Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Otherworldly Leather": 4,
+      "Astronomical Leather Trousers": 1
+    }
+  },
+  "Magical Robe": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Magical Flax": 15
+    }
+  },
+  "Enchanted Robe": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Enchanted Flax": 40
+    }
+  },
+  "Cursed Robe": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Cursed Flax": 70
+    }
+  },
+  "Astronomical Robe": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Astronomical Flax": 6
+    }
+  },
+  "Magical Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Magical Flax": 10
+    }
+  },
+  "Enchanted Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Enchanted Flax": 40
+    }
+  },
+  "Cursed Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Cursed Flax": 70
+    }
+  },
+  "Astronomical Trousers": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Astronomical Flax": 4
+    }
+  },
+  "Obsidian Powder": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Tempered Obsidian": 1
+    }
+  },
+  "Sea Serpent Scale": {
+    skill: "Crafting",
+    output: 1,
+    ingredients: {
+      "Raw Sea Serpent": 1
     }
   }
 });
