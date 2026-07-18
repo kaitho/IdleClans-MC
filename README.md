@@ -14,10 +14,11 @@ This project now includes a simple static web app that calculates how many base 
 - Brewing
 - Cooking
 - Crafting
+- Smithing
 
 ## Features
 - Pick multiple craft targets and quantities.
-- Browse items grouped by Brewing, Cooking, and Crafting.
+- Browse items grouped by Brewing, Cooking, Crafting, and Smithing.
 - See recipe counts per supported processing skill.
 - Recursively expands recipe chains.
 - Aggregates total base materials across all targets.
@@ -43,3 +44,4 @@ Recipes are defined in `script.js` under the `RECIPES` object.
 - Brewing recipes are now aligned with the official Brewing wiki skill table.
 - Cooking recipes are aligned with the official Cooking wiki skill table.
 - Crafting recipes are aligned with the official Crafting wiki skill table.
+- Smithing recipes are aligned with the official Smithing wiki skill table.

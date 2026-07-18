@@ -1,5 +1,5 @@
 const SKILL_TYPES = Object.freeze({
-  Processing: Object.freeze(["Brewing", "Cooking", "Crafting"])
+  Processing: Object.freeze(["Brewing", "Cooking", "Crafting", "Smithing"])
 });
 
 const RECIPES = Object.freeze({
@@ -532,6 +532,530 @@ const RECIPES = Object.freeze({
     output: 1,
     ingredients: {
       "Raw Sea Serpent": 1
+    }
+  },
+  "Bronze Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Tin Ore": 1,
+      "Copper Ore": 1
+    }
+  },
+  "Iron Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Iron Ore": 1
+    }
+  },
+  "Silver Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Ore": 1
+    }
+  },
+  "Steel Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Coal Ore": 1,
+      "Iron Ore": 2
+    }
+  },
+  "Gold Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Ore": 1
+    }
+  },
+  "Platinum Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Coal Ore": 3,
+      "Platinum Ore": 1
+    }
+  },
+  "Meteorite Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Coal Ore": 6,
+      "Meteorite Ore": 3
+    }
+  },
+  "Diamond Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Ore": 1
+    }
+  },
+  "Titanium Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Coal Ore": 9,
+      "Titanium Ore": 3
+    }
+  },
+  "Astronomical Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Coal Ore": 5000,
+      "Astronomical Ore": 1
+    }
+  },
+  "Otherworldly Bar": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Otherworldly Ore": 1,
+      "Astronomical Ore": 2,
+      "Meteorite Ore": 10000,
+      "Titanium Ore": 5000
+    }
+  },
+  "Bronze Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Bronze Bar": 6
+    }
+  },
+  "Bronze Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Bronze Bar": 4
+    }
+  },
+  "Bronze Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Bronze Bar": 2
+    }
+  },
+  "Bronze Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Bronze Bar": 4
+    }
+  },
+  "Iron Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Iron Bar": 6
+    }
+  },
+  "Iron Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Iron Bar": 4
+    }
+  },
+  "Iron Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Iron Bar": 2
+    }
+  },
+  "Iron Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Iron Bar": 4
+    }
+  },
+  "Steel Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Steel Bar": 6
+    }
+  },
+  "Steel Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Steel Bar": 4
+    }
+  },
+  "Steel Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Steel Bar": 2
+    }
+  },
+  "Steel Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Steel Bar": 4
+    }
+  },
+  "Platinum Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Platinum Bar": 6
+    }
+  },
+  "Platinum Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Platinum Bar": 4
+    }
+  },
+  "Platinum Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Platinum Bar": 2
+    }
+  },
+  "Platinum Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Platinum Bar": 4
+    }
+  },
+  "Meteorite Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Meteorite Bar": 6
+    }
+  },
+  "Meteorite Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Meteorite Bar": 4
+    }
+  },
+  "Meteorite Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Meteorite Bar": 2
+    }
+  },
+  "Meteorite Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Meteorite Bar": 4
+    }
+  },
+  "Titanium Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Titanium Bar": 6
+    }
+  },
+  "Titanium Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Titanium Bar": 4
+    }
+  },
+  "Titanium Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Titanium Bar": 2
+    }
+  },
+  "Titanium Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Titanium Bar": 4
+    }
+  },
+  "Astronomical Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Astronomical Bar": 6
+    }
+  },
+  "Astronomical Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Astronomical Bar": 4
+    }
+  },
+  "Astronomical Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Astronomical Bar": 2
+    }
+  },
+  "Astronomical Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Astronomical Bar": 4
+    }
+  },
+  "Otherworldly Platebody": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Otherworldly Bar": 6,
+      "Astronomical Platebody": 1
+    }
+  },
+  "Otherworldly Platelegs": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Otherworldly Bar": 4,
+      "Astronomical Platelegs": 1
+    }
+  },
+  "Otherworldly Helmet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Otherworldly Bar": 2,
+      "Astronomical Helmet": 1
+    }
+  },
+  "Otherworldly Shield": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Otherworldly Bar": 4,
+      "Astronomical Shield": 1
+    }
+  },
+  "Silver Amulet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Bar": 2
+    }
+  },
+  "Silver Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Bar": 2
+    }
+  },
+  "Silver Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Bar": 2
+    }
+  },
+  "Silver Earrings": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Bar": 2
+    }
+  },
+  "Gold Amulet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Bar": 2
+    }
+  },
+  "Gold Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Bar": 2
+    }
+  },
+  "Gold Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Bar": 2
+    }
+  },
+  "Gold Earrings": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Bar": 2
+    }
+  },
+  "Diamond Amulet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Bar": 2
+    }
+  },
+  "Diamond Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Bar": 2
+    }
+  },
+  "Diamond Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Bar": 2
+    }
+  },
+  "Diamond Earrings": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Bar": 2
+    }
+  },
+  "Silver Precision Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Ring": 1
+    }
+  },
+  "Silver Berserker Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Ring": 1
+    }
+  },
+  "Silver Arcane Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Ring": 1
+    }
+  },
+  "Silver Marksman Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Bracelet": 1
+    }
+  },
+  "Silver Brute Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Bracelet": 1
+    }
+  },
+  "Silver Sorcerer Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Silver Bracelet": 1
+    }
+  },
+  "Gold Precision Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Ring": 1
+    }
+  },
+  "Gold Berserker Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Ring": 1
+    }
+  },
+  "Gold Arcane Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Ring": 1
+    }
+  },
+  "Gold Marksman Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Bracelet": 1
+    }
+  },
+  "Gold Brute Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Bracelet": 1
+    }
+  },
+  "Gold Sorcerer Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Gold Bracelet": 1
+    }
+  },
+  "Diamond Precision Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Ring": 1
+    }
+  },
+  "Diamond Berserker Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Ring": 1
+    }
+  },
+  "Diamond Arcane Ring": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Ring": 1
+    }
+  },
+  "Diamond Marksman Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Bracelet": 1
+    }
+  },
+  "Diamond Brute Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Bracelet": 1
+    }
+  },
+  "Diamond Sorcerer Bracelet": {
+    skill: "Smithing",
+    output: 1,
+    ingredients: {
+      "Diamond Bracelet": 1
     }
   }
 });
