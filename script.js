@@ -1146,6 +1146,10 @@ function compareItems(left, right) {
   return left.localeCompare(right);
 }
 
+function matchesSearchQuery(itemName, searchQuery) {
+  return itemName.toLowerCase().includes(searchQuery);
+}
+
 function getSkillType(skill) {
   return skillMetadata.skillTypeBySkill.get(skill) || "Unmapped";
 }
@@ -1191,20 +1195,26 @@ function renderSkillSummary() {
   categoriesEmpty.hidden = true;
 }
 
-function populateItemSelect(select, selectedValue = craftableItems[0]) {
+function populateItemSelect(select, selectedValue = craftableItems[0], rawSearchQuery = "") {
   select.innerHTML = "";
+  const searchQuery = rawSearchQuery.trim().toLowerCase();
+  let hasMatchingItems = false;
 
   skillList.forEach((skill) => {
     const items = recipesBySkill.get(skill) || [];
-    if (!items.length) {
+    const filteredItems = searchQuery
+      ? items.filter((itemName) => matchesSearchQuery(itemName, searchQuery))
+      : items;
+
+    if (!filteredItems.length) {
       return;
     }
+    hasMatchingItems = true;
 
     const type = getSkillType(skill);
     const group = document.createElement("optgroup");
     group.label = `${skill} (${type})`;
-
-    items.forEach((itemName) => {
+    filteredItems.forEach((itemName) => {
       const option = document.createElement("option");
       option.value = itemName;
       option.textContent = itemName;
@@ -1216,15 +1226,37 @@ function populateItemSelect(select, selectedValue = craftableItems[0]) {
 
     select.append(group);
   });
+
+  if (!hasMatchingItems) {
+    const emptyOption = document.createElement("option");
+    emptyOption.value = "";
+    emptyOption.textContent = "No items match search";
+    emptyOption.selected = true;
+    select.append(emptyOption);
+    return;
+  }
+
+  if (!select.value) {
+    const firstOption = select.querySelector("option");
+    if (firstOption) {
+      firstOption.selected = true;
+    }
+  }
 }
 
 function addTargetRow(selectedItem = craftableItems[0], quantity = 1) {
   const fragment = targetRowTemplate.content.cloneNode(true);
   const row = fragment.querySelector(".target-row");
+  const searchInput = row.querySelector(".target-search");
   const select = row.querySelector(".target-item");
   const quantityInput = row.querySelector(".target-quantity");
   const removeButton = row.querySelector(".remove-target");
-  populateItemSelect(select, selectedItem);
+  populateItemSelect(select, selectedItem, searchInput.value);
+
+  searchInput.addEventListener("input", () => {
+    const currentSelection = select.value;
+    populateItemSelect(select, currentSelection, searchInput.value);
+  });
 
   quantityInput.value = String(quantity);
 
