@@ -17,6 +17,7 @@ This project now includes a simple static web app that calculates how many base 
 - Smithing
 
 ## Features
+- 🔎 Search Recipes
 - Pick multiple craft targets and quantities.
 - Browse items grouped by Brewing, Cooking, Crafting, and Smithing.
 - See recipe counts per supported processing skill.
