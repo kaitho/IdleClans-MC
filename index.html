@@ -29,6 +29,12 @@
     </section>
 
     <section class="panel">
+      <h2>Crafting Breakdown</h2>
+      <p id="breakdown-empty" class="empty">No calculation yet.</p>
+      <div id="breakdown"></div>
+    </section>
+
+    <section class="panel">
       <h2>Total Base Materials</h2>
       <p id="totals-empty" class="empty">No calculation yet.</p>
       <table id="totals-table" hidden>
@@ -40,22 +46,6 @@
         </thead>
         <tbody id="totals-body"></tbody>
       </table>
-    </section>
-
-    <section class="panel">
-      <h2>Crafting Breakdown</h2>
-      <p id="breakdown-empty" class="empty">No calculation yet.</p>
-      <div id="breakdown"></div>
-    </section>
-
-    <section class="panel notes">
-      <h2>Notes</h2>
-      <ul>
-        <li>Item choices are grouped by Brewing, Cooking, Crafting, and Smithing.</li>
-        <li>Crafting rounds up to full batches.</li>
-        <li>Items missing from recipe data are treated as base mats.</li>
-        <li>Update <code>RECIPES</code> in <code>script.js</code> to match game changes.</li>
-      </ul>
     </section>
 
     <footer class="footer">

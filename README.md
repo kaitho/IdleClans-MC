@@ -12,6 +12,7 @@ This project now includes a simple static web app that calculates how many base 
 
 ## Current skills in the UI:
 - Brewing
+- Carpentry
 - Cooking
 - Crafting
 - Smithing
@@ -19,7 +20,7 @@ This project now includes a simple static web app that calculates how many base 
 ## Features
 - 🔎 Search Recipes
 - Pick multiple craft targets and quantities.
-- Browse items grouped by Brewing, Cooking, Crafting, and Smithing.
+- Browse items grouped by Brewing, Carpentry, Cooking, Crafting, and Smithing.
 - See recipe counts per supported processing skill.
 - Recursively expands recipe chains.
 - Aggregates total base materials across all targets.

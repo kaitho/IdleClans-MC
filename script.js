@@ -1,5 +1,5 @@
 const SKILL_TYPES = Object.freeze({
-  Processing: Object.freeze(["Brewing", "Cooking", "Crafting", "Smithing"])
+  Processing: Object.freeze(["Brewing", "Carpentry", "Cooking", "Crafting", "Smithing"])
 });
 
 const RECIPES = Object.freeze({
@@ -102,6 +102,94 @@ const RECIPES = Object.freeze({
       "Obsidian Powder": 30,
       "Sea Serpent Scale": 30,
       "Spirit Salt": 50
+    }
+  },
+  "Spruce Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Spruce Log": 1,
+      Gold: 50
+    }
+  },
+  "Pine Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Pine Log": 1,
+      Gold: 60
+    }
+  },
+  "Oak Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Oak Log": 1,
+      Gold: 70
+    }
+  },
+  "Maple Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Maple Log": 1,
+      Gold: 80
+    }
+  },
+  "Teak Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Teak Log": 1,
+      Gold: 90
+    }
+  },
+  "Chestnut Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Chestnut Log": 1,
+      Gold: 100
+    }
+  },
+  "Mahogany Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Mahogany Log": 1,
+      Gold: 110
+    }
+  },
+  "Yew Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Yew Log": 1,
+      Gold: 125
+    }
+  },
+  "Redwood Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Redwood Log": 1,
+      Gold: 150
+    }
+  },
+  "Magical Plank": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Magical Log": 1,
+      Gold: 175
+    }
+  },
+  "Ignis Heartwood": {
+    skill: "Carpentry",
+    output: 1,
+    ingredients: {
+      "Ignis Log": 1,
+      Gold: 375
     }
   },
   "Cooked Piranha": {
@@ -1365,30 +1453,82 @@ function formatRequiredMaterials(children) {
 
 function createTreeListItem(node) {
   const item = document.createElement("li");
+  item.className = `breakdown-node${node.base ? " breakdown-node-base" : ""}`;
+  const card = document.createElement("article");
+  card.className = "breakdown-card";
 
   if (node.base) {
-    item.textContent = `${formatAmount(node.quantity)}x ${node.item} (base)`;
+    const label = document.createElement("span");
+    label.className = "breakdown-base-label";
+    label.textContent = "Base material";
+    const amount = document.createElement("strong");
+    amount.textContent = `${formatAmount(node.quantity)}x ${node.item}`;
+    card.append(label, amount);
+    item.append(card);
     return item;
   }
-  const summary = document.createElement("div");
-  summary.className = "breakdown-summary";
-  summary.textContent =
-    `${formatAmount(node.quantity)}x ${node.item} [${node.skill}] -> craft ${formatAmount(node.crafted)} ` +
-    `(${formatAmount(node.batches)} batch${node.batches === 1 ? "" : "es"})`;
-  item.append(summary);
+
+  const header = document.createElement("div");
+  header.className = "breakdown-card-header";
+  const title = document.createElement("h3");
+  title.className = "breakdown-title";
+  title.textContent = node.item;
+  const skill = document.createElement("span");
+  skill.className = "breakdown-skill";
+  skill.textContent = node.skill;
+  header.append(title, skill);
+
+  const summarySection = document.createElement("section");
+  summarySection.className = "breakdown-section";
+  const summaryHeading = document.createElement("h4");
+  summaryHeading.className = "breakdown-section-heading";
+  summaryHeading.textContent = "Craft summary";
+  const stats = document.createElement("dl");
+  stats.className = "breakdown-stats";
+  [
+    ["Requested", formatAmount(node.quantity)],
+    ["Craft", formatAmount(node.crafted)],
+    ["Batches", formatAmount(node.batches)]
+  ].forEach(([label, value]) => {
+    const stat = document.createElement("div");
+    const term = document.createElement("dt");
+    const detail = document.createElement("dd");
+    term.textContent = label;
+    detail.textContent = value;
+    stat.append(term, detail);
+    stats.append(stat);
+  });
+
+  summarySection.append(summaryHeading, stats);
+  card.append(header, summarySection);
 
   if (node.children.length) {
+    const needsSection = document.createElement("section");
+    needsSection.className = "breakdown-section";
+    const needsHeading = document.createElement("h4");
+    needsHeading.className = "breakdown-section-heading";
+    needsHeading.textContent = "Required materials";
     const needs = document.createElement("div");
     needs.className = "breakdown-needs";
-    needs.textContent = `Materials needed: ${formatRequiredMaterials(node.children)}`;
-    item.append(needs);
+    const needsValue = document.createElement("span");
+    needsValue.textContent = formatRequiredMaterials(node.children);
+    needs.append(needsValue);
+    needsSection.append(needsHeading, needs);
+    card.append(needsSection);
+
+    const stepsHeading = document.createElement("h4");
+    stepsHeading.className = "breakdown-steps-heading";
+    stepsHeading.textContent = "Crafting steps";
     const childrenList = document.createElement("ul");
+    childrenList.className = "breakdown-tree breakdown-children";
     node.children.forEach((child) => {
       childrenList.append(createTreeListItem(child));
     });
-    item.append(childrenList);
+    item.append(card, stepsHeading, childrenList);
+    return item;
   }
 
+  item.append(card);
   return item;
 }
 
@@ -1401,6 +1541,7 @@ function renderBreakdown(trees) {
   }
 
   const rootList = document.createElement("ul");
+  rootList.className = "breakdown-tree breakdown-root";
   trees.forEach((tree) => {
     rootList.append(createTreeListItem(tree));
   });
