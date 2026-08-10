@@ -31,7 +31,7 @@ Open `index.html` in a browser.
 
 Or serve it with a local static server:
 ```bash
-cd /workspace/IdleClans-RC
+cd /home/kai/Projects/IdleClans-MC
 python3 -m http.server 8000
 ```
 Then visit `http://localhost:8000`.
